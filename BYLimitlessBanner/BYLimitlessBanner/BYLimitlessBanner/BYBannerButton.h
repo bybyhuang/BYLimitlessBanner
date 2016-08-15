@@ -17,6 +17,8 @@
 
 - (void)configButtonWithImage:(UIImage *)image;
 
+- (void)configButtonWithObject:(id)object;
+
 
 
 

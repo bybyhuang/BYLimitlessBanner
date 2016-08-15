@@ -20,6 +20,8 @@
 
 @property(nonatomic,assign)NSInteger currentIndex;
 
+
+
 @end
 
 @implementation BYLimitlessBanner
@@ -55,8 +57,8 @@
 
     [scrollView setContentOffset:CGPointMake(self.width, 0)];
     scrollView.showsVerticalScrollIndicator = false;
-    scrollView.showsHorizontalScrollIndicator = true;
-    scrollView.backgroundColor = [UIColor redColor];
+    scrollView.showsHorizontalScrollIndicator = false;
+//    scrollView.backgroundColor = [UIColor redColor];
     [self addSubview:scrollView];
     self.scrollView = scrollView;
 }
@@ -84,6 +86,9 @@
     self.imageArray = [NSMutableArray arrayWithArray:imageArray];
     BYBannerButton *button = self.buttonArray[1];
     [button configButtonWithUrl:imageArray[1]];
+    
+    [self setupPageControl];
+    
     
 }
 
@@ -135,7 +140,7 @@
         
         BYBannerButton *button = self.buttonArray[i];
 
-        NSInteger index = 0;
+        NSInteger index = self.currentIndex;
         switch (i) {
             case 0:
                 
@@ -148,11 +153,11 @@
                 }
                 
                 //把图片地址给他
-                [button configButtonWithUrl:self.imageArray[index]];
+                [button configButtonWithObject:self.imageArray[index]];
                 
                 break;
             case 1:
-                [button configButtonWithUrl:self.imageArray[self.currentIndex]];
+                [button configButtonWithObject:self.imageArray[index]];
                 break;
             case 2:
                 if (_currentIndex == self.imageArray.count-1)
@@ -162,7 +167,8 @@
                 {
                     index = _currentIndex +1;
                 }
-                [button configButtonWithUrl:self.imageArray[index]];
+                [button configButtonWithObject:self.imageArray[index]];
+//                [button configButtonWithUrl:self.imageArray[index]];
                 break;
                 
             default:
@@ -173,6 +179,41 @@
 
 }
 
+
+
+- (void)setupPageControl
+{
+    UIPageControl *pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, self.height-20, 0, 0)];
+    pageControl.centerX = self.centerX-20;
+    UIImage *currentImage = [self imageWithColor:[UIColor whiteColor] AndSize:CGSizeMake(10, 5)];
+    
+    UIImage *otherImage = [self imageWithColor:[UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:0.5] AndSize:CGSizeMake(10, 5)];
+    
+    [pageControl setValue:currentImage forKeyPath:@"currentPageImage"];
+    [pageControl setValue:otherImage forKeyPath:@"pageImage"];
+    
+    pageControl.numberOfPages = 3;
+    
+    [self addSubview:pageControl];
+    
+    
+}
+
+
+- (UIImage *)imageWithColor:(UIColor *)color AndSize:(CGSize)size
+{
+    CGRect rect = CGRectMake(0, 0, size.width, size.height);
+    
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillRect(context, rect);
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return image;
+}
 
 @end
 

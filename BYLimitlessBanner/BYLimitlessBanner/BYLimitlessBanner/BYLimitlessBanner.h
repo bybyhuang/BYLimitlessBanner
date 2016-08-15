@@ -10,6 +10,6 @@
 
 @interface BYLimitlessBanner : UIScrollView
 
-
 - (void)configImageArrayWith:(NSArray*)imageArray;
+
 @end

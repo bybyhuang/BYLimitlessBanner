@@ -23,6 +23,7 @@
     if (self)
     {
         UIImageView *imageView =  [[UIImageView alloc] initWithFrame:self.bounds];
+        imageView.image = [UIImage imageNamed:@"3"];
         imageView.layer.masksToBounds = true;
         [self addSubview:imageView];
         self.bannerImage = imageView;
@@ -46,6 +47,19 @@
 - (void)configButtonWithImage:(UIImage *)image
 {
     self.bannerImage.image = image;
+}
+
+- (void)configButtonWithObject:(id)object
+{
+    if([object isKindOfClass:[NSString class]])
+    {
+        NSString *url = (NSString *)object;
+        [self configButtonWithUrl:url];
+    }else
+    {
+        UIImage *image = (UIImage *)object;
+        [self configButtonWithImage:image];
+    }
 }
 
 @end
