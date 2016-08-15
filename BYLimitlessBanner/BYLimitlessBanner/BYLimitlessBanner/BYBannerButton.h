@@ -1,5 +1,5 @@
 //
-//  BYLimitlessBanner.h
+//  BYBannerButton.h
 //  BYLimitlessBanner
 //
 //  Created by huangbaoyu on 16/8/15.
@@ -8,8 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BYLimitlessBanner : UIScrollView
 
 
-- (void)configImageArrayWith:(NSArray*)imageArray;
+
+@interface BYBannerButton : UIButton
+
+- (void)configButtonWithUrl:(NSString *)url;
+
+- (void)configButtonWithImage:(UIImage *)image;
+
+
+
+
 @end

@@ -8,13 +8,15 @@
 
 #import "BYLimitlessBanner.h"
 #import "UIView+Extension.h"
+#import "BYBannerButton.h"
 @interface BYLimitlessBanner()<UIScrollViewDelegate>
 
 @property(nonatomic,strong)NSMutableArray *buttonArray;
 
 @property(nonatomic,weak)UIScrollView *scrollView;
 
-@property(nonatomic,strong)NSMutableArray *colorArray;
+
+@property(nonatomic,strong)NSMutableArray *imageArray;
 
 @property(nonatomic,assign)NSInteger currentIndex;
 
@@ -32,14 +34,7 @@
         [self setupScrollView];
         [self setupButtonArray];
         self.currentIndex = 1;
-        
-        self.colorArray = [NSMutableArray array];
-        [_colorArray addObject:[UIColor redColor]];
-        [_colorArray addObject:[UIColor blueColor]];
-        [_colorArray addObject:[UIColor yellowColor]];
-        [_colorArray addObject:[UIColor greenColor]];
-        [_colorArray addObject:[UIColor blackColor]];
-        [_colorArray addObject:[UIColor brownColor]];
+
         
     }
     return self;
@@ -57,37 +52,39 @@
     
     scrollView.pagingEnabled = true;
     scrollView.contentSize = CGSizeMake(3*self.width, self.height);
-//    scrollView.backgroundColor = [UIColor redColor];
+
     [scrollView setContentOffset:CGPointMake(self.width, 0)];
     scrollView.showsVerticalScrollIndicator = false;
-    scrollView.showsHorizontalScrollIndicator = false;
+    scrollView.showsHorizontalScrollIndicator = true;
+    scrollView.backgroundColor = [UIColor redColor];
     [self addSubview:scrollView];
     self.scrollView = scrollView;
 }
 
+/**
+ *  初始化按钮
+ */
 - (void)setupButtonArray
 {
     for (int i = 0; i<3; i++) {
-        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(self.width*i, 0, self.width, self.height)];
-        switch (i) {
-            case 0:
-                button.backgroundColor = [UIColor redColor];
-                break;
-            case 1:
-                button.backgroundColor = [UIColor blueColor];
-                break;
-            case 2:
-                button.backgroundColor = [UIColor yellowColor];
-                break;
-                
-            default:
-                break;
-        }
-
+        NSLog(@"%d",i);
+        BYBannerButton *button = [[BYBannerButton alloc] initWithFrame:CGRectMake(self.width*i, 0, self.width, self.height)];
+        
         [self.scrollView addSubview:button];
         [self.buttonArray addObject:button];
 
     }
+}
+
+/**
+ *  通过网址来加载图片
+ */
+- (void)configImageArrayWith:(NSArray*)imageArray
+{
+    self.imageArray = [NSMutableArray arrayWithArray:imageArray];
+    BYBannerButton *button = self.buttonArray[1];
+    [button configButtonWithUrl:imageArray[1]];
+    
 }
 
 
@@ -103,7 +100,7 @@
         if (num == 2)
         {
             self.currentIndex = self.currentIndex+1;
-            if (self.currentIndex == self.colorArray.count)
+            if (self.currentIndex == self.imageArray.count)
             {
                 self.currentIndex = 0;
             }
@@ -115,7 +112,7 @@
             self.currentIndex = self.currentIndex - 1;
             if (self.currentIndex < 0)
             {
-                self.currentIndex = self.colorArray.count-1;
+                self.currentIndex = self.imageArray.count-1;
             }
         }
         //改变图片
@@ -136,36 +133,36 @@
     //设置对应的颜色
     for (int i =0; i<self.buttonArray.count; i++) {
         
-        UIButton *button = self.buttonArray[i];
-        
-        
-        
-        
+        BYBannerButton *button = self.buttonArray[i];
+
         NSInteger index = 0;
         switch (i) {
             case 0:
                 
                 if (_currentIndex == 0)
                 {
-                    index = self.colorArray.count-1;
+                    index = self.imageArray.count-1;
                 }else
                 {
                     index = self.currentIndex-1;
                 }
-                button.backgroundColor = self.colorArray[index];
+                
+                //把图片地址给他
+                [button configButtonWithUrl:self.imageArray[index]];
+                
                 break;
             case 1:
-                button.backgroundColor = self.colorArray[self.currentIndex];
+                [button configButtonWithUrl:self.imageArray[self.currentIndex]];
                 break;
             case 2:
-                if (_currentIndex == self.colorArray.count-1)
+                if (_currentIndex == self.imageArray.count-1)
                 {
                     index = 0;
                 }else
                 {
                     index = _currentIndex +1;
                 }
-                button.backgroundColor = self.colorArray[index];
+                [button configButtonWithUrl:self.imageArray[index]];
                 break;
                 
             default:

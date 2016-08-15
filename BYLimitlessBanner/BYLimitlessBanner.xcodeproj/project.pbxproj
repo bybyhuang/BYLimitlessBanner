@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		63790F2248D023EB672DA151 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B41731D67A3C03BDCCC68EC3 /* libPods.a */; };
 		9D3CC3221D61A7E100229F60 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D3CC3211D61A7E100229F60 /* main.m */; };
 		9D3CC3251D61A7E100229F60 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D3CC3241D61A7E100229F60 /* AppDelegate.m */; };
 		9D3CC3281D61A7E100229F60 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D3CC3271D61A7E100229F60 /* ViewController.m */; };
@@ -17,6 +18,8 @@
 		9D3CC3461D61A7E100229F60 /* BYLimitlessBannerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D3CC3451D61A7E100229F60 /* BYLimitlessBannerUITests.m */; };
 		9D3CC3561D61A7EC00229F60 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D3CC3551D61A7EC00229F60 /* UIView+Extension.m */; };
 		9D3CC35D1D61A82600229F60 /* BYLimitlessBanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D3CC35C1D61A82600229F60 /* BYLimitlessBanner.m */; };
+		9D3CC3601D61ACCD00229F60 /* BYBannerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D3CC35F1D61ACCD00229F60 /* BYBannerButton.m */; };
+		9D3CC3621D61B1FB00229F60 /* default_img@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D3CC3611D61B1FB00229F60 /* default_img@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		90E185A6CABAA4665B685142 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		9D3CC31D1D61A7E100229F60 /* BYLimitlessBanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BYLimitlessBanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D3CC3211D61A7E100229F60 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9D3CC3231D61A7E100229F60 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -57,6 +61,11 @@
 		9D3CC3551D61A7EC00229F60 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		9D3CC35B1D61A82600229F60 /* BYLimitlessBanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BYLimitlessBanner.h; sourceTree = "<group>"; };
 		9D3CC35C1D61A82600229F60 /* BYLimitlessBanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BYLimitlessBanner.m; sourceTree = "<group>"; };
+		9D3CC35E1D61ACCD00229F60 /* BYBannerButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BYBannerButton.h; sourceTree = "<group>"; };
+		9D3CC35F1D61ACCD00229F60 /* BYBannerButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BYBannerButton.m; sourceTree = "<group>"; };
+		9D3CC3611D61B1FB00229F60 /* default_img@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default_img@2x.png"; sourceTree = "<group>"; };
+		B41731D67A3C03BDCCC68EC3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C41759C82DF0291E23A907CA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63790F2248D023EB672DA151 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +94,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8ACC07AC5B03C9E2F196633F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B41731D67A3C03BDCCC68EC3 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9D3CC3141D61A7E100229F60 = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +109,8 @@
 				9D3CC3391D61A7E100229F60 /* BYLimitlessBannerTests */,
 				9D3CC3441D61A7E100229F60 /* BYLimitlessBannerUITests */,
 				9D3CC31E1D61A7E100229F60 /* Products */,
+				BD5701CB104E776A9B44CD29 /* Pods */,
+				8ACC07AC5B03C9E2F196633F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,6 +127,7 @@
 		9D3CC31F1D61A7E100229F60 /* BYLimitlessBanner */ = {
 			isa = PBXGroup;
 			children = (
+				9D3CC3611D61B1FB00229F60 /* default_img@2x.png */,
 				9D3CC35A1D61A81A00229F60 /* BYLimitlessBanner */,
 				9D3CC3531D61A7EC00229F60 /* Category */,
 				9D3CC3231D61A7E100229F60 /* AppDelegate.h */,
@@ -162,8 +183,19 @@
 			children = (
 				9D3CC35B1D61A82600229F60 /* BYLimitlessBanner.h */,
 				9D3CC35C1D61A82600229F60 /* BYLimitlessBanner.m */,
+				9D3CC35E1D61ACCD00229F60 /* BYBannerButton.h */,
+				9D3CC35F1D61ACCD00229F60 /* BYBannerButton.m */,
 			);
 			path = BYLimitlessBanner;
+			sourceTree = "<group>";
+		};
+		BD5701CB104E776A9B44CD29 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C41759C82DF0291E23A907CA /* Pods.debug.xcconfig */,
+				90E185A6CABAA4665B685142 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,9 +205,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9D3CC34A1D61A7E100229F60 /* Build configuration list for PBXNativeTarget "BYLimitlessBanner" */;
 			buildPhases = (
+				DF4E05B1F83656666BD40D52 /* Check Pods Manifest.lock */,
 				9D3CC3191D61A7E100229F60 /* Sources */,
 				9D3CC31A1D61A7E100229F60 /* Frameworks */,
 				9D3CC31B1D61A7E100229F60 /* Resources */,
+				150E54FCAD0E405A93BE5626 /* Embed Pods Frameworks */,
+				21ABEF87E5B23B666996885A /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -271,6 +306,7 @@
 			files = (
 				9D3CC3301D61A7E100229F60 /* LaunchScreen.storyboard in Resources */,
 				9D3CC32D1D61A7E100229F60 /* Assets.xcassets in Resources */,
+				9D3CC3621D61B1FB00229F60 /* default_img@2x.png in Resources */,
 				9D3CC32B1D61A7E100229F60 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -291,6 +327,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		150E54FCAD0E405A93BE5626 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		21ABEF87E5B23B666996885A /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DF4E05B1F83656666BD40D52 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9D3CC3191D61A7E100229F60 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -298,6 +382,7 @@
 			files = (
 				9D3CC3281D61A7E100229F60 /* ViewController.m in Sources */,
 				9D3CC3251D61A7E100229F60 /* AppDelegate.m in Sources */,
+				9D3CC3601D61ACCD00229F60 /* BYBannerButton.m in Sources */,
 				9D3CC3561D61A7EC00229F60 /* UIView+Extension.m in Sources */,
 				9D3CC35D1D61A82600229F60 /* BYLimitlessBanner.m in Sources */,
 				9D3CC3221D61A7E100229F60 /* main.m in Sources */,
@@ -439,6 +524,7 @@
 		};
 		9D3CC34B1D61A7E100229F60 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C41759C82DF0291E23A907CA /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = BYLimitlessBanner/Info.plist;
@@ -451,6 +537,7 @@
 		};
 		9D3CC34C1D61A7E100229F60 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90E185A6CABAA4665B685142 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = BYLimitlessBanner/Info.plist;
@@ -526,6 +613,7 @@
 				9D3CC34C1D61A7E100229F60 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9D3CC34D1D61A7E100229F60 /* Build configuration list for PBXNativeTarget "BYLimitlessBannerTests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +622,7 @@
 				9D3CC34F1D61A7E100229F60 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9D3CC3501D61A7E100229F60 /* Build configuration list for PBXNativeTarget "BYLimitlessBannerUITests" */ = {
 			isa = XCConfigurationList;
@@ -542,6 +631,7 @@
 				9D3CC3521D61A7E100229F60 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
