@@ -20,7 +20,12 @@
 
 @property(nonatomic,assign)NSInteger currentIndex;
 
+@property(nonatomic,weak)UIPageControl *pageControl;
 
+
+@property(nonatomic,assign)CGFloat repeatTime;
+
+@property(nonatomic,weak)NSTimer *timer;
 
 @end
 
@@ -35,8 +40,11 @@
         self.buttonArray = [NSMutableArray array];
         [self setupScrollView];
         [self setupButtonArray];
-        self.currentIndex = 1;
-
+        self.currentIndex = 0;
+        
+        self.repeatTime = 3;
+        
+        
         
     }
     return self;
@@ -84,8 +92,17 @@
 - (void)configImageArrayWith:(NSArray*)imageArray
 {
     self.imageArray = [NSMutableArray arrayWithArray:imageArray];
+    if (imageArray.count == 1)
+    {
+        self.scrollView.contentSize = CGSizeMake(self.width, self.height);
+    }else
+    {
+        [self setupTimer];
+    }
+    
     BYBannerButton *button = self.buttonArray[1];
-    [button configButtonWithUrl:imageArray[1]];
+    [button configButtonWithUrl:imageArray[0]];
+    
     
     [self setupPageControl];
     
@@ -123,7 +140,9 @@
         //改变图片
         
         [scrollView setContentOffset:CGPointMake(self.width, 0)];
-        //
+        //改变pageControl的位置
+        self.pageControl.currentPage = self.currentIndex;
+        
 
         [self changeButtonPosition];
     }
@@ -192,9 +211,10 @@
     [pageControl setValue:currentImage forKeyPath:@"currentPageImage"];
     [pageControl setValue:otherImage forKeyPath:@"pageImage"];
     
-    pageControl.numberOfPages = 3;
+    pageControl.numberOfPages = self.imageArray.count;
     
     [self addSubview:pageControl];
+    self.pageControl = pageControl;
     
     
 }
@@ -213,6 +233,20 @@
     UIGraphicsEndImageContext();
     
     return image;
+}
+
+//让scrollView滚动到下一个
+- (void)scrollToNext
+{
+    [self.scrollView setContentOffset:CGPointMake(self.width*2, 0) animated:true];
+   
+}
+
+- (void)setupTimer
+{
+    //初始化一个定时器
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:_repeatTime target:self selector:@selector(scrollToNext) userInfo:nil repeats:true];
+    self.timer = timer;
 }
 
 @end
